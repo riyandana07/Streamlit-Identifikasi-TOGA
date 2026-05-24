@@ -28,6 +28,12 @@ st.markdown("""
     );
 }
 
+/* Container utama */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 /* Judul */
 .main-title {
     font-size: 32px;
@@ -177,7 +183,7 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="subtitle">Sistem Deteksi Daun Tanaman Obat Keluarga Menggunakan YOLOv8</div>',
+    '<div class="subtitle">Sistem Deteksi Daun Tanaman Obat Keluarga Menggunakan YOLOv8s</div>',
     unsafe_allow_html=True
 )
 
