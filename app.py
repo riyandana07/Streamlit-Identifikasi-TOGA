@@ -109,7 +109,7 @@ section[data-testid="stSidebar"] * {
 # =========================
 # LOAD MODEL
 # =========================
-model = YOLO("best (2).pt")
+model = YOLO("best.pt")
 
 # =========================
 # SIDEBAR
