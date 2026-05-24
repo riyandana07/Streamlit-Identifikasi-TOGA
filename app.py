@@ -26,7 +26,6 @@ st.markdown("""
         #2d6a4f 40%,
         #40916c 100%
     );
-    background-attachment: fixed;
 }
 
 /* Judul */
@@ -218,10 +217,6 @@ if uploaded_file is not None:
     # =========================
     # GAMBAR ASLI
     # =========================
-    st.markdown(
-        '<div class="custom-card">',
-        unsafe_allow_html=True
-    )
 
     st.subheader("📷 Gambar Asli")
 
@@ -230,16 +225,10 @@ if uploaded_file is not None:
         use_container_width=True
     )
 
-    st.markdown('</div>', unsafe_allow_html=True)
-
     # =========================
     # HASIL DETEKSI
     # =========================
-    st.markdown(
-        '<div class="custom-card">',
-        unsafe_allow_html=True
-    )
-
+            
     st.subheader("✅ Hasil Deteksi")
 
     st.image(
@@ -247,16 +236,10 @@ if uploaded_file is not None:
         use_container_width=True
     )
 
-    st.markdown('</div>', unsafe_allow_html=True)
-
     # =========================
     # DETAIL PREDIKSI
     # =========================
-    st.markdown(
-        '<div class="custom-card">',
-        unsafe_allow_html=True
-    )
-
+                
     st.subheader("📊 Detail Prediksi")
 
     boxes = results[0].boxes
@@ -285,5 +268,3 @@ if uploaded_file is not None:
 
     else:
         st.warning("❌ Tanaman tidak terdeteksi")
-
-    st.markdown('</div>', unsafe_allow_html=True)
