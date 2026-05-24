@@ -172,7 +172,7 @@ YOLOv8s
 # HEADER
 # =========================
 st.markdown(
-    '<div class="main-title">🌿 Deteksi Tanaman TOGA</div>',
+    '<div class="main-title">🌿 Deteksi Tanaman Obat Keluarga (TOGA)</div>',
     unsafe_allow_html=True
 )
 
