@@ -9,7 +9,7 @@ import numpy as np
 st.set_page_config(
     page_title="Deteksi Tanaman TOGA",
     page_icon="🌿",
-    layout="wide"
+    layout="centered"
 )
 
 # =========================
@@ -28,10 +28,10 @@ st.markdown("""
     );
     background-attachment: fixed;
 }
-            
+
 /* Judul */
 .main-title {
-    font-size: 45px;
+    font-size: 32px;
     font-weight: bold;
     color: #dcfce7;
     text-align: center;
@@ -42,16 +42,16 @@ st.markdown("""
 .subtitle {
     text-align: center;
     color: #f0fdf4;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 30px;
 }
 
 /* Card */
 .custom-card {
-    background-color: rgba(255,255,255,0.88);
-    padding: 25px;
+    background-color: rgba(255,255,255,0.90);
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.20);
     margin-bottom: 20px;
 }
 
@@ -63,7 +63,7 @@ st.markdown("""
     margin-top: 10px;
     color: #14532d;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 /* Sidebar */
@@ -80,17 +80,13 @@ section[data-testid="stSidebar"] * {
     color: white;
 }
 
-/* Upload text jadi hitam */
-[data-testid="stFileUploader"] {
-    color: white;
-}
-
-/* Label uploader */
+/* Upload text */
 .upload-text {
-    color: black;
+    color: white;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* List tanaman */
@@ -101,6 +97,30 @@ section[data-testid="stSidebar"] * {
     margin-top: 10px;
     line-height: 1.8;
     font-size: 15px;
+}
+
+/* Responsive HP */
+@media screen and (max-width: 768px) {
+
+    .main-title {
+        font-size: 26px !important;
+    }
+
+    .subtitle {
+        font-size: 15px !important;
+    }
+
+    .custom-card {
+        padding: 15px !important;
+    }
+
+    .result-box {
+        font-size: 14px !important;
+    }
+
+    .upload-text {
+        font-size: 18px !important;
+    }
 }
 
 </style>
@@ -171,7 +191,7 @@ st.markdown(
 )
 
 # =========================
-# UPLOAD FILE
+# FILE UPLOADER
 # =========================
 uploaded_file = st.file_uploader(
     "",
@@ -186,55 +206,48 @@ if uploaded_file is not None:
     # Buka gambar
     image = Image.open(uploaded_file).convert("RGB")
 
-    # Convert numpy
+    # Convert ke numpy
     img_array = np.array(image)
 
-    # Prediksi YOLO
+    # Prediksi
     results = model(img_array)
 
     # Gambar hasil
     annotated_image = results[0].plot()
 
-    # Layout 2 kolom
-    col1, col2 = st.columns(2)
-
     # =========================
     # GAMBAR ASLI
     # =========================
-    with col1:
+    st.markdown(
+        '<div class="custom-card">',
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            '<div class="custom-card">',
-            unsafe_allow_html=True
-        )
+    st.subheader("📷 Gambar Asli")
 
-        st.subheader("📷 Gambar Asli")
+    st.image(
+        image,
+        use_container_width=True
+    )
 
-        st.image(
-            image,
-            use_container_width=True
-        )
-
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # =========================
     # HASIL DETEKSI
     # =========================
-    with col2:
+    st.markdown(
+        '<div class="custom-card">',
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            '<div class="custom-card">',
-            unsafe_allow_html=True
-        )
+    st.subheader("✅ Hasil Deteksi")
 
-        st.subheader("✅ Hasil Deteksi")
+    st.image(
+        annotated_image,
+        use_container_width=True
+    )
 
-        st.image(
-            annotated_image,
-            use_container_width=True
-        )
-
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # =========================
     # DETAIL PREDIKSI
