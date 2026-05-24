@@ -7,7 +7,7 @@ import numpy as np
 # KONFIGURASI HALAMAN
 # =========================
 st.set_page_config(
-    page_title="Deteksi Tanaman TOGA",
+    page_title="Deteksi Tanaman Obat Keluarga (TOGA)",
     page_icon="🌿",
     layout="centered"
 )
