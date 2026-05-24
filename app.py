@@ -7,7 +7,7 @@ import numpy as np
 # KONFIGURASI HALAMAN
 # =========================
 st.set_page_config(
-    page_title="Deteksi Tanaman Obat Keluarga (TOGA)",
+    page_title="Identifikasi Tanaman Obat Keluarga (TOGA)",
     page_icon="🌿",
     layout="centered"
 )
@@ -41,7 +41,7 @@ html, body, [class*="css"] {
     padding-bottom: 2rem;
     max-width: 1000px;
 }
-            
+
 /* Judul */
 .main-title {
     font-size: 32px;
@@ -147,10 +147,10 @@ model = YOLO("best.pt")
 # =========================
 # SIDEBAR
 # =========================
-st.sidebar.title("🌿 Sistem Deteksi TOGA")
+st.sidebar.title("🌿 Sistem Identifikasi TOGA")
 
 st.sidebar.markdown("""
-Aplikasi ini digunakan untuk mendeteksi daun tanaman obat keluarga (TOGA) menggunakan model YOLOv8 berbasis Computer Vision.
+Aplikasi berbasis web ini digunakan untuk mengidentifikasi jenis tanaman obat keluarga (TOGA) menggunakan model YOLOv8s berbasis Computer Vision.
 """)
 
 st.sidebar.markdown("## 📚 Dataset Tanaman")
@@ -186,12 +186,12 @@ YOLOv8s
 # HEADER
 # =========================
 st.markdown(
-    '<div class="main-title">🌿 Deteksi Tanaman Obat Keluarga (TOGA)</div>',
+    '<div class="main-title">🌿 Sistem Identifikasi Tanaman Obat Keluarga (TOGA)</div>',
     unsafe_allow_html=True
 )
 
 st.markdown(
-    '<div class="subtitle">Sistem Deteksi Daun Tanaman Obat Keluarga Menggunakan YOLOv8s</div>',
+    '<div class="subtitle">Implementasi YOLOv8s untuk Identifikasi Tanaman Obat Keluarga Berbasis Web</div>',
     unsafe_allow_html=True
 )
 
@@ -212,7 +212,7 @@ uploaded_file = st.file_uploader(
 )
 
 # =========================
-# PROSES DETEKSI
+# PROSES IDENTIFIKASI
 # =========================
 if uploaded_file is not None:
 
@@ -231,7 +231,6 @@ if uploaded_file is not None:
     # =========================
     # GAMBAR ASLI
     # =========================
-
     st.subheader("📷 Gambar Asli")
 
     st.image(
@@ -240,10 +239,9 @@ if uploaded_file is not None:
     )
 
     # =========================
-    # HASIL DETEKSI
+    # HASIL IDENTIFIKASI
     # =========================
-            
-    st.subheader("✅ Hasil Deteksi")
+    st.subheader("✅ Hasil Identifikasi")
 
     st.image(
         annotated_image,
@@ -253,7 +251,6 @@ if uploaded_file is not None:
     # =========================
     # DETAIL PREDIKSI
     # =========================
-                
     st.subheader("📊 Detail Prediksi")
 
     boxes = results[0].boxes
@@ -281,4 +278,4 @@ if uploaded_file is not None:
             st.progress(conf)
 
     else:
-        st.warning("❌ Tanaman tidak terdeteksi")
+        st.warning("❌ Tanaman tidak teridentifikasi")
