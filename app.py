@@ -79,6 +79,19 @@ html, body, [class*="css"] {
     font-size: 16px;
 }
 
+/* Informasi tanaman */
+.info-box {
+    background-color: rgba(255,255,255,0.92);
+    padding: 18px;
+    border-radius: 18px;
+    margin-top: 12px;
+    margin-bottom: 15px;
+    color: #14532d;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
 /* Sidebar */
 section[data-testid="stSidebar"] {
     background: linear-gradient(
@@ -134,6 +147,10 @@ section[data-testid="stSidebar"] * {
     .upload-text {
         font-size: 18px !important;
     }
+
+    .info-box {
+        font-size: 14px !important;
+    }
 }
 
 </style>
@@ -143,6 +160,42 @@ section[data-testid="stSidebar"] * {
 # LOAD MODEL
 # =========================
 model = YOLO("best.pt")
+
+# =========================
+# INFORMASI TANAMAN
+# =========================
+plant_info = {
+
+    "Belimbing Wuluh":
+    "Membantu meningkatkan daya tahan tubuh dan membantu menjaga tekanan darah.",
+
+    "Jambu Biji":
+    "Mengandung vitamin C tinggi dan membantu menjaga sistem pencernaan.",
+
+    "Jeruk Nipis":
+    "Membantu meningkatkan daya tahan tubuh dan membantu meredakan flu serta batuk.",
+
+    "Kemangi":
+    "Membantu menjaga kesehatan pencernaan dan mengandung antioksidan alami.",
+
+    "Lidah Buaya":
+    "Membantu menjaga kesehatan kulit dan rambut serta mengandung antioksidan.",
+
+    "Nangka":
+    "Mempercepat penyembuhan luka dan mengatasi jerawat dan bekas jerawat.",
+
+    "Pandan":
+    "Membantu memberikan efek relaksasi dan sering digunakan sebagai aromaterapi alami.",
+
+    "Pepaya":
+    "Membantu melancarkan pencernaan dan meningkatkan nafsu makan.",
+
+    "Seledri":
+    "Membantu menjaga tekanan darah dan kesehatan tubuh.",
+
+    "Sirih":
+    "Memiliki sifat antiseptik alami dan membantu menjaga kesehatan mulut."
+}
 
 # =========================
 # SIDEBAR
@@ -277,5 +330,38 @@ if uploaded_file is not None:
 
             st.progress(conf)
 
+            # =========================
+            # INFORMASI TANAMAN
+            # =========================
+            info = plant_info.get(
+                class_name,
+                "Informasi tanaman tidak tersedia."
+            )
+
+            st.markdown(
+                f"""
+                <div class="info-box">
+                🌿 <b>Manfaat Tanaman {class_name}</b><br><br>
+                {info}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
     else:
         st.warning("❌ Tanaman tidak teridentifikasi")
+
+# =========================
+# FOOTER
+# =========================
+st.markdown("---")
+
+st.markdown(
+    """
+    <center>
+    🌿 Sistem Identifikasi Tanaman TOGA Berbasis YOLOv8s <br>
+    Dibuat untuk Penelitian Skripsi
+    </center>
+    """,
+    unsafe_allow_html=True
+)
