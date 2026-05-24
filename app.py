@@ -23,17 +23,25 @@ st.markdown("""
     background: linear-gradient(
         135deg,
         #1b4332 0%,
-        #2d6a4f 40%,
+        #2d6a4f 50%,
         #40916c 100%
     );
+    min-height: 100vh;
+}
+
+/* Menghindari bug layar putih di HP */
+html, body, [class*="css"] {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Container utama */
 .main .block-container {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    max-width: 1000px;
 }
-
+            
 /* Judul */
 .main-title {
     font-size: 32px;
