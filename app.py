@@ -159,7 +159,7 @@ section[data-testid="stSidebar"] * {
 # =========================
 # LOAD MODEL
 # =========================
-model = YOLO("best.pt")
+model = YOLO("best (1).pt")
 
 # =========================
 # INFORMASI TANAMAN
