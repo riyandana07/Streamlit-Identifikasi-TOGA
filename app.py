@@ -59,15 +59,6 @@ html, body, [class*="css"] {
     margin-bottom: 30px;
 }
 
-/* Card */
-.custom-card {
-    background-color: rgba(255,255,255,0.90);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.20);
-    margin-bottom: 20px;
-}
-
 /* Hasil prediksi */
 .result-box {
     background-color: #dcfce7;
@@ -109,9 +100,10 @@ section[data-testid="stSidebar"] * {
 /* Upload text */
 .upload-text {
     color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -134,10 +126,6 @@ section[data-testid="stSidebar"] * {
 
     .subtitle {
         font-size: 15px !important;
-    }
-
-    .custom-card {
-        padding: 15px !important;
     }
 
     .result-box {
@@ -182,7 +170,7 @@ plant_info = {
     "Membantu menjaga kesehatan kulit dan rambut serta mengandung antioksidan.",
 
     "Nangka":
-    "Mempercepat penyembuhan luka dan mengatasi jerawat dan bekas jerawat.",
+    "Membantu mempercepat penyembuhan luka dan membantu menjaga kesehatan kulit.",
 
     "Pandan":
     "Membantu memberikan efek relaksasi dan sering digunakan sebagai aromaterapi alami.",
@@ -247,20 +235,11 @@ st.markdown(
     '<div class="subtitle">Implementasi YOLOv8s untuk Identifikasi Tanaman Obat Keluarga Berbasis Web</div>',
     unsafe_allow_html=True
 )
-
-# =========================
-# TEXT UPLOAD
-# =========================
-st.markdown(
-    '<div class="upload-text">📤 Upload Gambar Daun Tanaman</div>',
-    unsafe_allow_html=True
-)
-
 # =========================
 # FILE UPLOADER
 # =========================
 uploaded_file = st.file_uploader(
-    "",
+    "📤 Upload Gambar Daun Tanaman",
     type=["jpg", "jpeg", "png"]
 )
 
@@ -312,23 +291,28 @@ if uploaded_file is not None:
 
         for box in boxes:
 
-            conf = float(box.conf[0])
+            # Confidence menjadi persen
+            conf = float(box.conf[0]) * 100
 
+            # Class ID
             cls_id = int(box.cls[0])
 
+            # Nama class
             class_name = model.names[cls_id]
 
+            # Hasil prediksi
             st.markdown(
                 f"""
                 <div class="result-box">
                 🌱 Tanaman: {class_name}<br>
-                🎯 Confidence: {conf:.2f}
+                🎯 Confidence: {conf:.2f}%
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
-            st.progress(conf)
+            # Progress bar
+            st.progress(conf / 100)
 
             # =========================
             # INFORMASI TANAMAN
