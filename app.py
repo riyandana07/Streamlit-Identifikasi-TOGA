@@ -158,31 +158,31 @@ plant_info = {
     "Membantu meningkatkan daya tahan tubuh dan membantu menjaga tekanan darah.",
 
     "Jambu Biji":
-    "Mengandung vitamin C tinggi dan membantu menjaga sistem pencernaan.",
+    "Mengandung vitamin C dan membantu menjaga sistem pencernaan.",
 
     "Jeruk Nipis":
-    "Membantu meningkatkan daya tahan tubuh dan membantu meredakan flu serta batuk.",
+    "Menurunkan stres dan gelisah serta dapat mencegah kanker .",
 
     "Kemangi":
-    "Membantu menjaga kesehatan pencernaan dan mengandung antioksidan alami.",
+    "Membantu menjaga kesehatan pencernaan dan bisa mengatasi jerawat.",
 
     "Lidah Buaya":
-    "Membantu menjaga kesehatan kulit dan rambut serta mengandung antioksidan.",
+    "Membantu menjaga kesehatan kulit dan rambut serta bisa mengurangi kolesterol.",
 
     "Nangka":
     "Membantu mempercepat penyembuhan luka dan membantu menjaga kesehatan kulit.",
 
     "Pandan":
-    "Membantu memberikan efek relaksasi dan sering digunakan sebagai aromaterapi alami.",
+    "Membantu menjaga fungsi penglihatan dan membantu mengontrol gula darah.",
 
     "Pepaya":
-    "Membantu melancarkan pencernaan dan meningkatkan nafsu makan.",
+    "Membantu mencegah dan mengatasi sembelit serta bisa mengatasi nyeri sendi.",
 
     "Seledri":
-    "Membantu menjaga tekanan darah dan kesehatan tubuh.",
+    "Membantu menjaga tekanan darah dan mengurangi peradangan.",
 
     "Sirih":
-    "Memiliki sifat antiseptik alami dan membantu menjaga kesehatan mulut."
+    "Membantu mengurangi keputihan dan mengatasi infeksi jamur di mulut."
 }
 
 # =========================
