@@ -139,12 +139,8 @@ section[data-testid="stSidebar"] * {
     .info-box {
         font-size: 14px !important;
     }
-}/* TAMBAHKAN DI SINI */
-[data-testid="stSidebar"] img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -194,7 +190,10 @@ plant_info = {
 # =========================
 with st.sidebar:
 
-    st.image("logo uniska.png", width=150)
+    col1, col2, col3 = st.columns([1,3,1])
+
+    with col2:
+        st.image("logo uniska.png", width=150)
 
     st.title("🌿 Sistem Identifikasi TOGA")
 
