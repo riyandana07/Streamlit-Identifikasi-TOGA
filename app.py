@@ -191,7 +191,7 @@ plant_info = {
 # Logo Fakultas Teknik UNISKA
 st.sidebar.image(
     "logo uniska.png",
-    width=220
+    width=100
 )
 
 st.sidebar.title("🌿 Sistem Identifikasi TOGA")
