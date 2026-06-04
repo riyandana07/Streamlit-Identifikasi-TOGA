@@ -161,7 +161,7 @@ plant_info = {
     "Mengandung vitamin C dan membantu menjaga sistem pencernaan.",
 
     "Jeruk Nipis":
-    "Menurunkan stres dan gelisah serta dapat mencegah kanker .",
+    "Menurunkan stres dan gelisah serta dapat mencegah kanker",
 
     "Kemangi":
     "Membantu menjaga kesehatan pencernaan dan bisa mengatasi jerawat.",
@@ -188,6 +188,12 @@ plant_info = {
 # =========================
 # SIDEBAR
 # =========================
+# Logo Fakultas Teknik UNISKA
+st.sidebar.image(
+    "logo uniska.png",
+    width=220
+)
+
 st.sidebar.title("🌿 Sistem Identifikasi TOGA")
 
 st.sidebar.markdown("""
