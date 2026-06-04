@@ -188,17 +188,19 @@ plant_info = {
 # =========================
 # SIDEBAR
 # =========================
-# Logo Fakultas Teknik UNISKA
-st.sidebar.image(
-    "logo uniska.png",
-    width=100
-)
+with st.sidebar:
 
-st.sidebar.title("🌿 Sistem Identifikasi TOGA")
+    col1, col2, col3 = st.columns([1,2,1])
 
-st.sidebar.markdown("""
-Aplikasi berbasis web ini digunakan untuk mengidentifikasi jenis tanaman obat keluarga (TOGA) menggunakan model YOLOv8s berbasis Computer Vision.
-""")
+    with col2:
+        st.image("logo_uniska.png", width=180)
+
+    st.title("🌿 Sistem Identifikasi TOGA")
+
+    st.markdown("""
+    Aplikasi berbasis web ini digunakan untuk mengidentifikasi jenis tanaman obat keluarga (TOGA)
+    menggunakan model YOLOv8s berbasis Computer Vision.
+    """)
 
 st.sidebar.markdown("## 📚 Dataset Tanaman")
 
